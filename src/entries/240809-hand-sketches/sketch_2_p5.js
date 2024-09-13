@@ -1,7 +1,7 @@
 
-const sketch = (p) => {
+const sketch_2 = (p) => {
   p.setup = () => {
-    p.createCanvas(window.innerWidth / 2, window.innerHeight / 3);
+    p.createCanvas(window.innerWidth / 3, 100);
     p.background(0);
   };
 
@@ -33,6 +33,6 @@ const sketch = (p) => {
 //new p5.default(sketch);
 //let myp5 = new p5(sketch);
 
-new p5(sketch, 'sketch-container');
+new p5(sketch_2, 'sketch-container-2');
 
 console.log("loaded sketch.js");
