@@ -1,0 +1,14 @@
+/* src/styles/main.css */
+
+/* Add any custom styles here */
+body {
+    /* For Swiss-style design, keep it minimal and clean */
+  }
+  
+  /* Example of a container to center content */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  

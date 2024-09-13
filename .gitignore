@@ -1,0 +1,30 @@
+# Eleventy output
+_site/
+
+# Node modules
+node_modules/
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# macOS system files
+.DS_Store
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+
+# Cache
+.cache/
+
+# Eleventy-specific
+.eleventy.js.map
