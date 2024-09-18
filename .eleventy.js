@@ -1,5 +1,5 @@
 // .eleventy.js
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   // Passthrough copy for images, scripts, and styles
   eleventyConfig.addPassthroughCopy("src/styles");
   eleventyConfig.addPassthroughCopy("src/scripts");
@@ -12,8 +12,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget("src/entries/");
 
   // Shortcode to include external JS files
-  eleventyConfig.addShortcode("scriptSrc", function(src) {
+  eleventyConfig.addShortcode("scriptSrc", function (src) {
     return `<script src="../${src}"></script>`;
+  });
+
+  // New shortcode for sketch container and script
+  eleventyConfig.addShortcode("sketchContainer", function (src, id) {
+    return `<div id="${id}"></div>
+      <script src="../${src}"></script>`;
   });
 
   // Set Markdown library to allow HTML
@@ -24,7 +30,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownIt(markdownItOptions));
 
   // Collections for navigation
-  eleventyConfig.addCollection("entries", function(collectionApi) {
+  eleventyConfig.addCollection("entries", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/entries/**/*.md");
   });
 
