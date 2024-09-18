@@ -18,4 +18,4 @@ const mySketch2 = (p) => {
     };
 };
 // Create a new p5 instance using mySketch
-new p5(mySketch2);
+new p5(mySketch2, 'mySketch2');

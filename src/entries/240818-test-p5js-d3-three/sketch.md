@@ -10,6 +10,7 @@ This document contains examples of three popular JavaScript libraries: **p5.js**
 **p5.js** is a JavaScript library that makes it easy to create visual and interactive experiences on the web. It was designed to be a friendly and accessible tool for artists, designers, educators, and beginners, with a focus on making coding more inclusive and approachable.
 
 <script type="module" src="./p5jtest.js"></script>
+{% sketchContainer "p5jtest.js", "p5jtest" %}
 
 ---
 

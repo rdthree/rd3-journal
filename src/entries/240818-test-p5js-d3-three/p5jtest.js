@@ -1,5 +1,5 @@
 //import p5 from "p5";
-const sketch = (p) => {
+const p5jtest = (p) => {
     p.setup = () => {
         p.createCanvas(400, 400);
         p.background(200);
@@ -8,4 +8,4 @@ const sketch = (p) => {
         p.ellipse(p.mouseX, p.mouseY, 50, 50);
     };
 };
-new p5(sketch);
+new p5(p5jtest, 'p5jtest');

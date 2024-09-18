@@ -1,5 +1,4 @@
-# My p5.js Sketch
+# p5.js sketch
 
-This is a p5.js sketch embedded in a Markdown file.
 
-<script type="module" src="./sketch_p5.js"></script>
+get the circle to stop following you {% sketchContainer "sketch_p5.js", "followCircle" %}

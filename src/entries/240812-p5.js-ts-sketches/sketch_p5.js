@@ -15,4 +15,4 @@ function mySketch(p) {
     };
 }
 // Create a new p5 instance using mySketch
-let p = new p5(mySketch);
+let p = new p5(mySketch, 'mySketch');
