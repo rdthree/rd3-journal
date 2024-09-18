@@ -1,31 +1,31 @@
-<!-- src/_includes/layout.njk -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Include Pico.css -->
-  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
-  <!-- Include custom CSS -->
-  <link rel="stylesheet" href="/styles/main.css">
-  <!-- Include p5.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      {% for entry in collections.entries | reverse %}
-      <li><a href="{{ entry.url }}">{{ entry.data.title }}</a></li>
-      {% endfor %}
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
+  </head>
+  <body>
+    <div class="layout-grid">
+<nav class="vertical-nav">
+  <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    {% for entry in collections.entries | reverse %}
+      <li>
+        <a href="{{ entry.url }}">{{ entry.data.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
 
-  <!-- Main Content -->
-  <main class="container">
-    {{ content | safe }}
-  </main>
-</body>
+      <main class="main-content">
+        {{ content | safe }}
+      </main>
+    </div>
+  </body>
 </html>
