@@ -2,7 +2,6 @@
 
 This document contains examples of three popular JavaScript libraries: **p5.js**, **D3.js**, and **Three.js**. Each section provides a brief explanation of the library followed by a test sketch that demonstrates basic functionality.
 
-
 ---
 
 ## p5.js
@@ -19,7 +18,6 @@ This document contains examples of three popular JavaScript libraries: **p5.js**
 
 <script type="module" src="./d3test.js"></script>
 
-
 ---
 
 ## Three.js
@@ -27,4 +25,3 @@ This document contains examples of three popular JavaScript libraries: **p5.js**
 **Three.js** is a JavaScript library that makes it easy to create 3D graphics in the browser. It simplifies the WebGL API and provides many built-in functions for creating and manipulating 3D objects, lights, and cameras. It's widely used for creating 3D web applications, games, and interactive visualizations.
 
 <script type="module" src="./threetest.js"></script>
-

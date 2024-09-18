@@ -10,7 +10,7 @@
   <!-- Include custom CSS -->
   <link rel="stylesheet" href="/styles/main.css">
   <!-- Include p5.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
+  {# <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script> #}
 </head>
 <body>
   <!-- Navigation -->
@@ -27,5 +27,8 @@
   <main class="container">
     {{ content | safe }}
   </main>
+
+
+{% loadP5 %}
 </body>
 </html>
