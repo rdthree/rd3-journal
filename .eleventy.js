@@ -11,6 +11,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/scripts/");
   eleventyConfig.addWatchTarget("src/entries/");
 
+  eleventyConfig.addGlobalData("eleventyComputed", {
+    layout: data => data.layout || "layout.njk",
+    title: data => {
+      if (data.title) {
+        return data.title;
+      }
+      // Compute the title based on the folder name
+      const filePathStem = data.page.filePathStem;
+      const parts = filePathStem.split('/');
+      const folderName = parts.length > 1 ? parts[parts.length - 2] : '';
+      return folderName || 'Home';
+    }
+  });
+
   // Shortcode to include external JS files
   eleventyConfig.addShortcode("scriptSrc", function (src) {
     return `<script src="../${src}"></script>`;
