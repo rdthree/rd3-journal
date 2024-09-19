@@ -1,8 +1,8 @@
-console.log("D3 test script running");
 //import * as d3 from "d3";
-function createBarChart() {
+const sketchId = "d3-chart-circle"
+function createBarChart(containerId = sketchId) {
     const data = [30, 80, 45, 60, 20, 90, 50];
-    const svg = d3.select("body").append("svg")
+    const svg = d3.select(`#${containerId}`).append("svg")
         .attr("width", 500)
         .attr("height", 300);
     svg.selectAll("rect")
@@ -15,8 +15,8 @@ function createBarChart() {
         .attr("height", (d) => d)
         .attr("fill", "teal");
 }
-function createSimpleCircle() {
-    const svg = d3.select("body").append("svg")
+function createSimpleCircle(containerId = sketchId) {
+    const svg = d3.select(`#${containerId}`).append("svg")
         .attr("width", 500)
         .attr("height", 300)
         .style("border", "1px solid black");
@@ -33,5 +33,17 @@ function createSimpleCircle() {
     }
 }
 // Call the functions directly in the global scope
-createBarChart();
-createSimpleCircle();
+//createBarChart();
+//createSimpleCircle();
+
+// Automatically execute functions when the script loads
+document.addEventListener('DOMContentLoaded', () => {
+    createBarChart();
+    createSimpleCircle();
+});
+
+// Export functions for potential external use
+//window.createBarChart = createBarChart;
+//window.createSimpleCircle = createSimpleCircle;
+
+console.log("D3 test script running");
