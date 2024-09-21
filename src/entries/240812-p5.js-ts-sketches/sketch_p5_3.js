@@ -1,13 +1,15 @@
-//import p5 from "p5";
-const mySketch3 = (p) => {
+"use strict";
+// Import p5 types if you're using modules. If p5 is included globally via a script tag, you can omit this.
+function mySketch3(p) {
     let angle = 0;
-    let canvas; // Declare the canvas variable explicitly
+    let canvas;
     // The setup function to initialize the sketch
     p.setup = () => {
         canvas = p.createCanvas(800, 400);
-        //canvas.parent('sketch-container');  // Attach the canvas to the container, on a website
+        // canvas.parent('sketch-container');  // Attach the canvas to the container, on a website
     };
-    p.draw = function () {
+    // The draw function to continuously run the sketch
+    p.draw = () => {
         p.background(150, 200, 100);
         p.stroke(0);
         p.strokeWeight(2);
@@ -20,13 +22,13 @@ const mySketch3 = (p) => {
         p.endShape();
         angle += 0.1;
     };
-    p.mousePressed = function () {
+    // The mousePressed function to handle mouse interactions
+    p.mousePressed = () => {
         if (p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height) {
-            canvas?.elt.focus(); // Use .elt to access the native HTML element
+            canvas === null || canvas === void 0 ? void 0 : canvas.elt.focus(); // Use optional chaining to safely access the element
             return false;
         }
     };
-};
-// Create a new p5 instance using mySketch
-//new p5(mySketch3);
-new p5(mySketch3, 'mySketch3');
+}
+// Create a new p5 instance using mySketch3
+const mySketch3Instance = new p5(mySketch3, 'mySketch3');

@@ -1,11 +1,13 @@
-//import p5 from "p5";
-const mySketch2 = (p) => {
+"use strict";
+// Import p5 types if you're using modules. If p5 is included globally via a script tag, you can omit this.
+function mySketch2(p) {
     let x = 100;
     let y = 100;
+    let canvas; // Declare the canvas variable explicitly
     // The setup function to initialize the sketch
     p.setup = () => {
-        let canvas = p.createCanvas(400, 200); // Create a canvas that belongs to this sketch
-        //canvas.parent('sketch-container');  // Attach the canvas to the container, on a website
+        canvas = p.createCanvas(400, 200); // Create a canvas that belongs to this sketch
+        // canvas.parent('sketch-container');  // Attach the canvas to the container, on a website
     };
     // The draw function to continuously run the sketch
     p.draw = () => {
@@ -14,8 +16,7 @@ const mySketch2 = (p) => {
             p.fill(p.random(255), p.random(255), p.random(255));
             p.rect(p.random(p.width), p.random(p.height), p.random(20, 50), p.random(20, 50));
         }
-        ;
     };
-};
-// Create a new p5 instance using mySketch
-new p5(mySketch2, 'mySketch2');
+}
+// Create a new p5 instance using mySketch2
+const mySketch2Instance = new p5(mySketch2, 'mySketch2');

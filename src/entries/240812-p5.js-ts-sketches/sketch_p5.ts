@@ -1,16 +1,12 @@
-import p5 from "p5";
-
-function mySketch(p: p5) {
-    let x = 100;
-    let y = 100;
+// Import p5 types if you're using modules. If p5 is included globally via a script tag, you can omit this.
+function mySketch(p: typeof p5) {
+    let x: number = 100;
+    let y: number = 100;
 
     // The setup function to initialize the sketch
     p.setup = () => {
         let canvas = p.createCanvas(400, 200); // Create a canvas that belongs to this sketch
-
-        //canvas.parent('sketch-container');  // Attach the canvas to the container, on a website
     };
-
     // The draw function to continuously run the sketch
     p.draw = () => {
         p.background(220); // Set the background
@@ -18,6 +14,5 @@ function mySketch(p: p5) {
         p.ellipse(x, y, 50, 50); // Draw an ellipse
     };
 }
-
 // Create a new p5 instance using mySketch
-let p = new p5(mySketch);
+const mySketchInstance = new p5(mySketch, 'mySketch');

@@ -1,4 +1,4 @@
-//import * as THREE from "three";
+import * as THREE from 'three';
 export default function createRotatingCube() {
     // Create the scene
     const scene = new THREE.Scene();
@@ -11,7 +11,7 @@ export default function createRotatingCube() {
     document.body.appendChild(renderer.domElement);
     // Create a geometry and material
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0xcccff0 });
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     // Create a mesh and add it to the scene
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
