@@ -95,7 +95,7 @@ nav.vertical-nav ul li a:hover {
 /* Common styles for Sketch Containers */
 .sketch-container, .d3-container, .three-container {
   position: relative;
-  width: relative;
+  width: 100%;
   height: relative; /* Adjust height as needed */
   overflow: hidden; /* Prevent overflow */
 }
