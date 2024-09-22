@@ -104,7 +104,7 @@
 
 This file is the core of the Eleventy configuration. It orchestrates the build process, defines custom shortcodes, and configures various aspects of site generation.
 
-**Note**: If you make changes to the `.eleventy.js` file, you'll need to restart the development server or rebuild the project for the changes to take effect. This is because `.eleventy.js` is a configuration file that's loaded when Eleventy starts up.
+**Note**: If you make changes to the `.eleventy.js` file OR if you rename directories or files, you'll need to restart the development server or rebuild the project for the changes to take effect. This is because `.eleventy.js` is a configuration file that's loaded when Eleventy starts up.
 
 To apply changes in `.eleventy.js`:
 1. Stop the current development server (if running)

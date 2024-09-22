@@ -1,6 +1,5 @@
 ---
 layout: layout.njk
-title: "240809-sticks n stones"
 ---
 
 ## {{ title }}
