@@ -13,6 +13,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/styles/");
   eleventyConfig.addWatchTarget("src/scripts/");
   eleventyConfig.addWatchTarget("src/entries/");
+  eleventyConfig.addWatchTarget("src/entries/**/*.js"); //sketches
+
+
+  // README.md
+  eleventyConfig.addPassthroughCopy({ "README.md": "README.md" });
 
   eleventyConfig.addGlobalData("eleventyComputed", {
     layout: data => data.layout || "layout.njk",

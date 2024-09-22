@@ -4,10 +4,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm-run-all --parallel eleventy:serve",
-    "build": "eleventy",
+    "watch:ts": "tsc --watch",
+    "start": "npm-run-all --parallel watch:ts eleventy:serve",
+    "build": "tsc && eleventy",
     "eleventy": "eleventy",
     "eleventy:serve": "eleventy --serve --watch"
+
   },
   "keywords": [],
   "author": "",
