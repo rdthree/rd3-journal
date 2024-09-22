@@ -12,10 +12,9 @@
         "moduleResolution": "Node",
         "typeRoots": [
             "./node_modules/@types",
-            "./src/types",
-            "./node_modules/@types/p5"
+            "./src/types"
         ],
-        "types": ["p5"]
+        "types": ["p5", "d3", "three"]
     },
     "include": ["src/**/*", "./src/types/globals.d.ts"],
     "exclude": [

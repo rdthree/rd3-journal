@@ -93,10 +93,20 @@ nav.vertical-nav ul li a:hover {
 }
 
 /* Common styles for Sketch Containers */
-.sketch-container, .d3-container, .three-container {
+.sketch-container, .d3-container {
+  flex: 1;
   position: relative;
   width: 100%;
-  height: relative; /* Adjust height as needed */
+  height: auto;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.three-container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 50vh;
   overflow: hidden; /* Prevent overflow */
 }
 

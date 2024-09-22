@@ -1,38 +1,31 @@
-//import * as THREE from "three";
+// src/main.ts
+// Import Three.js from the shared module
 import { THREE } from '../../scripts/threejs-shared-module.js'; // Adjust the path as needed
-
 const threeId = 'threetest';
-
+/**
+ * Creates a rotating cube inside the specified container.
+ * @param containerId - The ID of the container where the cube will be rendered.
+ */
 function createRotatingCube(containerId = threeId) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container with id "${containerId}" not found.`);
         return;
     }
-
     // Create the scene
     const scene = new THREE.Scene();
-
     // Create a camera
-    const camera = new THREE.PerspectiveCamera(
-        75,
-        container.clientWidth / container.clientHeight,
-        0.1,
-        1000
-    );
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
     camera.position.z = 5;
-
     // Create the renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement); // Append to the specified container
-
     // Ensure the canvas fills the container
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     renderer.domElement.style.display = 'block';
-
     // Handle window resize
     window.addEventListener('resize', () => {
         const width = container.clientWidth;
@@ -41,15 +34,12 @@ function createRotatingCube(containerId = threeId) {
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
     });
-
     // Create a geometry and material
     const geometry = new THREE.BoxGeometry();
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-
     // Create a mesh and add it to the scene
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
-
     // Animation loop
     const animate = () => {
         requestAnimationFrame(animate);
@@ -59,10 +49,8 @@ function createRotatingCube(containerId = threeId) {
     };
     animate();
 }
-
 // Auto-execute when the script loads
 document.addEventListener('DOMContentLoaded', () => {
     createRotatingCube('threetest'); // Ensure the ID matches the container
 });
-
 console.log("Three test script running");
