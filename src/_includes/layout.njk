@@ -7,23 +7,21 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <link rel="stylesheet" href="/styles/main.css">
-
   </head>
   <body>
     <div class="layout-grid">
-<nav class="vertical-nav">
-  <ul>
-    <li>
-      <a href="/">Home</a>
-    </li>
-    {% for entry in collections.entries | reverse %}
-      <li>
-        <a href="{{ entry.url }}">{{ entry.data.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</nav>
-
+      <nav class="vertical-nav">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          {% for entry in collections.entries | reverse %}
+            <li>
+              <a href="{{ entry.url }}">{{ entry.data.date }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
       <main class="main-content">
         {{ content | safe }}
       </main>

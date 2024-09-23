@@ -48,7 +48,7 @@ nav.vertical-nav ul li a {
   display: block;
   margin: 0;
   padding: 0.2rem 0;
-  font-size: 0.5rem;
+  font-size: 0.60rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: var(--color);
@@ -67,14 +67,32 @@ nav.vertical-nav ul li a:hover {
   flex-direction: row;
   min-height: 100vh;
 }
-
 .vertical-nav {
-  width: 250px;
+  width: 100px;
+  transition: width 0.3s ease;
   padding: 1rem;
   background-color: white;
   overflow-y: auto;
 }
 
+.vertical-nav.expanded {
+  width: 500px;
+}
+
+.vertical-nav .entry-name {
+  display: none;
+}
+
+.vertical-nav.expanded .entry-name {
+  display: inline;
+}
+
+.expand-button {
+  position: fixed;
+  left: 100px;
+  top: 10px;
+  z-index: 1000;
+}
 .main-content {
   flex: 1;
   padding: 1rem;

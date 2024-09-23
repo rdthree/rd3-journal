@@ -15,22 +15,24 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/entries/");
   eleventyConfig.addWatchTarget("src/entries/**/*.js"); //sketches
 
-
   // README.md
   eleventyConfig.addPassthroughCopy({ "README.md": "README.md" });
 
+  // get the folder data from the folder names
+  function extractFolderInfo(data) {
+    const filePathStem = data.page.filePathStem;
+    const parts = filePathStem.split('/');
+    const folderName = parts.length > 1 ? parts[parts.length - 2] : '';
+    return {
+      folderName,
+      date: folderName.substring(0, 6)
+    };
+  }
+
   eleventyConfig.addGlobalData("eleventyComputed", {
     layout: data => data.layout || "layout.njk",
-    title: data => {
-      if (data.title) {
-        return data.title;
-      }
-      // Compute the title based on the folder name
-      const filePathStem = data.page.filePathStem;
-      const parts = filePathStem.split('/');
-      const folderName = parts.length > 1 ? parts[parts.length - 2] : '';
-      return folderName || 'Home';
-    }
+    title: data => data.title || extractFolderInfo(data).folderName || 'Home',
+    date: data => data.date || extractFolderInfo(data).date
   });
 
   // Shortcode to include external JS libraries conditionally
@@ -114,6 +116,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("entries", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/entries/**/*.md");
   });
+
+  // filter to extract date from MMDDYY folder name
+  eleventyConfig.addFilter("extractDate", function (inputPath) {
+    const folderName = inputPath.split('/').pop();
+    return folderName.substring(0, 6);
+  });
+
 
   // Configure input and output directories
   return {

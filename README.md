@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**rd3 journal** is a digital journaling platform built with [Eleventy (11ty)](https://www.11ty.dev/), designed to seamlessly integrate written entries with interactive JavaScript sketches using **p5.js**, **D3.js**, and **Three.js**. The setup allows for fluid navigation and instant sketch loading without page refreshes, leveraging **TypeScript** for enhanced development experience and type safety.
+**rd3 journal** is a digital journaling platform built with [Eleventy (11ty)](https://www.11ty.dev/), designed to seamlessly integrate written entries with interactive JavaScript sketches using **p5.js**, **D3.js**, and **Three.js**. The setup allows for fluid navigation and instant sketch loading without page refreshes, sketches may also be written **TypeScript**.
 
 ## Table of Contents
 
