@@ -29,6 +29,7 @@ module.exports = function (eleventyConfig) {
     };
   }
 
+  // properties for the computed entries data, usable in templates
   eleventyConfig.addGlobalData("eleventyComputed", {
     layout: data => data.layout || "layout.njk",
     title: data => data.title || extractFolderInfo(data).folderName || 'Home',
@@ -116,13 +117,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("entries", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/entries/**/*.md");
   });
-
-  // filter to extract date from MMDDYY folder name
-  eleventyConfig.addFilter("extractDate", function (inputPath) {
-    const folderName = inputPath.split('/').pop();
-    return folderName.substring(0, 6);
-  });
-
 
   // Configure input and output directories
   return {

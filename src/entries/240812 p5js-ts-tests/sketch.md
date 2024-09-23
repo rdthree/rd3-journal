@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: "240812-p5.js-ts-sketches"
+title: "240812 p5.js-ts-sketches"
 ---
 # p5.js sketch, ts to js
 

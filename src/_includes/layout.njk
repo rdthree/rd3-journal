@@ -1,23 +1,40 @@
-{# layout.njk #}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <!-- Icon Library (Optional) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanwQqC1Ij+3UZp2o0fRJ8zUnfs6h1cYnA0u+yjJJhS8BB1vHLea8BA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    >
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
     <div class="layout-grid">
       <nav class="vertical-nav">
+        <button class="expand-button" aria-label="Toggle Sidebar" aria-expanded="false"></button>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <a href="/" title="Home">
+              <i class="fas fa-home"></i>
+              <span class="entry-name">Home</span>
+            </a>
           </li>
           {% for entry in collections.entries | reverse %}
             <li>
-              <a href="{{ entry.url }}">{{ entry.data.date }}</a>
+              <a href="{{ entry.url }}" title="{{ entry.data.date }}">
+                <i class="fas fa-link"></i> <!-- Replace with appropriate icon -->
+                <span class="entry-name">{{ entry.data.title }}</span>
+              </a>
             </li>
           {% endfor %}
         </ul>
@@ -26,5 +43,6 @@
         {{ content | safe }}
       </main>
     </div>
+    <script src="/scripts/navigation.js"></script>
   </body>
 </html>
