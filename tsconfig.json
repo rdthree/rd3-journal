@@ -10,13 +10,17 @@
         "importHelpers": false,
         "noImplicitAny": true,
         "moduleResolution": "Node",
+        "baseUrl": ".",
         "typeRoots": [
             "./node_modules/@types",
-            "./src/types"
+            "src/types"
         ],
+        "paths": {
+            "threejs-shared-module": ["src/types/threejs-shared-module.d.ts"]
+        },
         "types": ["p5", "d3", "three"]
     },
-    "include": ["src/**/*", "./src/types/globals.d.ts"],
+    "include": ["src/**/*", "/src/types/*.d.ts"],
     "exclude": [
         "node_modules"
     ]

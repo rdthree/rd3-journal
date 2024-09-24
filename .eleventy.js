@@ -109,14 +109,20 @@ module.exports = function (eleventyConfig) {
   });
 
   // Set Markdown library to allow HTML
-  const markdownItOptions = {
+  const markdownIt = require("markdown-it");
+  const markdownItPrism = require("markdown-it-prism");
+  
+  const markdownLibrary = markdownIt({
     html: true,
     breaks: true,
     linkify: true,
-  };
-
-  const markdownLibrary = markdownIt(markdownItOptions).use(markdownItPrism);
+  }).use(markdownItPrism, {
+    // add plugins here
+    //plugins: ["line-numbers"],
+  });
+  
   eleventyConfig.setLibrary("md", markdownLibrary);
+  
 
   // Collections for navigation
   eleventyConfig.addCollection("entries", function (collectionApi) {

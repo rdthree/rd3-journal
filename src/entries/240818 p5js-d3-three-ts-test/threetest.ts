@@ -1,7 +1,10 @@
 // src/main.ts
 
 // Import Three.js from the shared module
+/// <reference path="../../types/threejs-shared-module.d.ts" />
 import { THREE } from '../../scripts/threejs-shared-module.js'; // Adjust the path as needed
+//import { THREE } from 'threejs-shared-module.js'; // Adjust the path as needed
+
 
 const threeId: string = 'threetest';
 
