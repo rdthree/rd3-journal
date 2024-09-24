@@ -31,7 +31,7 @@
         <button class="expand-button" aria-label="Toggle Sidebar" aria-expanded="false"></button>
         <ul>
           <li>
-            <a href="/" title="Home">
+            <a href="{{ '/' | url }}" title="Home">
               {# <i class="fas fa-home"></i> #}
               <!-- Replace with appropriate icon --><span class="entry-name">Home</span>
             </a>
@@ -50,6 +50,6 @@
         {{ content | safe }}
       </main>
     </div>
-    <script src="/scripts/navigation.js"></script>
+    <script src="{{ '/scripts/navigation.js' | url }}"></script>
   </body>
 </html>
