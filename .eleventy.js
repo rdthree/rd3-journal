@@ -108,6 +108,16 @@ module.exports = function (eleventyConfig) {
     `;
   });
 
+  // shortcode to incject code blocks into entries
+  eleventyConfig.addShortcode("injectCode", function (src) {
+  const fs = require('fs');
+  const path = require('path');
+  const content = fs.readFileSync(path.join(path.dirname(this.page.inputPath), src), 'utf8');
+  const language = path.extname(src).slice(1);
+  return `\`\`\`${language}\n${content}\n\`\`\``;
+});
+
+
   // Set Markdown library to allow HTML
   const markdownIt = require("markdown-it");
   const markdownItPrism = require("markdown-it-prism");

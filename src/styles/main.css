@@ -223,6 +223,7 @@ nav.vertical-nav ul li a .entry-name {
   flex: 1;
   padding: 1rem;
   overflow-y: auto;
+  max-width: 80ch;
 }
 
 /* Responsive Adjustments */
