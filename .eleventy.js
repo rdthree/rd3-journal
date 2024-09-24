@@ -1,6 +1,7 @@
 // .eleventy.js
 const nunjucks = require("nunjucks"); // Import Nunjucks
 const markdownIt = require("markdown-it");
+const markdownItPrism = require("markdown-it-prism");
 
 module.exports = function (eleventyConfig) {
   // Passthrough copy for styles, scripts, and favicon
@@ -110,8 +111,12 @@ module.exports = function (eleventyConfig) {
   // Set Markdown library to allow HTML
   const markdownItOptions = {
     html: true,
+    breaks: true,
+    linkify: true,
   };
-  eleventyConfig.setLibrary("md", markdownIt(markdownItOptions));
+
+  const markdownLibrary = markdownIt(markdownItOptions).use(markdownItPrism);
+  eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Collections for navigation
   eleventyConfig.addCollection("entries", function (collectionApi) {

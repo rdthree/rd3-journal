@@ -48,7 +48,7 @@ nav.vertical-nav {
   position: relative;
   width: 62px; /* Collapsed width: enough for icons */
   transition: width 0.3s ease;
-  padding: 0.30rem;
+  padding: 0.95rem;
   background-color: white;
   /* optional right border */
   /* border-right: 1px solid #ddd;  */
@@ -117,6 +117,7 @@ nav.vertical-nav ul li a .entry-name {
 .expand-button {
   align-self: flex-start; /* Aligns the button to the left */
   margin: 2px 0; /* Top and bottom margins */
+  margin-left: -09px;
   margin-bottom: 24px;
   width: 12px; /* Diameter of the circle */
   height: 12px;
