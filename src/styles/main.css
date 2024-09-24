@@ -156,6 +156,31 @@ nav.vertical-nav ul li a .entry-name,
   max-width: 80ch;
 }
 
+/* Common styles for all Sketch Containers */
+.sketch-container,
+.d3-container,
+.three-container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Specific height for three-container */
+.three-container {
+  min-height: 50vh;
+}
+
+/* Ensure the canvas fills the container */
+.sketch-container canvas,
+.d3-container canvas,
+.three-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .layout-grid {
