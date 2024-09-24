@@ -23,7 +23,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"></script>
     <!-- Your Custom Styles -->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="{{ '/styles/main.css' | url }}">
   </head>
   <body class="line-numbers">
     <div class="layout-grid">
@@ -38,7 +38,7 @@
           </li>
           {% for entry in collections.entries | reverse %}
             <li>
-              <a href="{{ entry.url }}" title="{{ entry.data.date }}">
+              <a href="{{ entry.url | url }}" title="{{ entry.data.date }}">
                 {# <i class="fas fa-link"></i> #}
                 <!-- Replace with appropriate icon --><span class="entry-name">{{ entry.data.title }}</span>
               </a>
