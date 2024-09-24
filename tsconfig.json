@@ -5,6 +5,7 @@
         "module": "ESNext",
         "esModuleInterop": false,
         "noEmitHelpers": true,
+        "noEmitOnError": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "importHelpers": false,
