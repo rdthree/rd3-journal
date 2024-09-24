@@ -20,6 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'  # Specifies the latest Node.js version
+          cache: 'npm'           # Caches npm dependencies for faster builds
+
       - name: Install dependencies & build
         run: |
           npm install
