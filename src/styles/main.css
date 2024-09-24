@@ -7,13 +7,19 @@
   --primary: #007bff;
 }
 
+/* Base Styles */
+body {
+  font-family: var(--font-family);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--color);
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  text-align: left; /* Ensure body text is left-aligned */
+}
+
 /* Headings Styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -21,40 +27,11 @@ h6 {
   line-height: 1.2;
 }
 
-h1 {
-  font-size: 0.88rem;
-}
-
-h2 {
-  font-size: 0.87rem;
-}
-
-h3 {
-  font-size: 0.86rem;
-}
-
-h4 {
-  font-size: 0.85rem;
-}
-
-h5,
-h6 {
-  font-size: 0.80rem;
-}
-
-/* Base Styles */
-body {
-  font-family: var(--font-family);
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: var(--color);
-  margin: 0;
-  /* Remove default margin */
-  padding: 0;
-  /* Remove default padding */
-  text-align: left;
-  /* Ensure body text is left-aligned */
-}
+h1 { font-size: 0.88rem; }
+h2 { font-size: 0.87rem; }
+h3 { font-size: 0.86rem; }
+h4 { font-size: 0.85rem; }
+h5, h6 { font-size: 0.80rem; }
 
 /* Layout */
 .layout-grid {
@@ -67,23 +44,19 @@ body {
 nav.vertical-nav {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  /* Align items to the start (left) */
+  align-items: flex-start; /* Align items to the start (left) */
   position: relative;
-  width: 6ch;
-  /* Collapsed width: enough for icons */
+  width: 6ch; /* Collapsed width: enough for icons */
   transition: width 0.3s ease;
   padding: 0.65rem;
   background-color: white;
   /* optional right border */
-  /* border-right: 1px solid #ddd;  */
-  overflow: hidden;
-  /* Hide overflow when collapsed */
+  /* border-right: 1px solid #ddd; */
+  overflow: hidden; /* Hide overflow when collapsed */
 }
 
 nav.vertical-nav.expanded {
-  width: 300px;
-  /* Expanded width: enough for icons and text */
+  width: 300px; /* Expanded width: enough for icons and text */
 }
 
 nav.vertical-nav ul {
@@ -92,12 +65,9 @@ nav.vertical-nav ul {
   margin: 0;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  /* Allows the <ul> to take up remaining space */
-  width: 100%;
-  /* Ensure ul takes full width */
-  text-align: left;
-  /* Ensure list items are left-aligned */
+  flex-grow: 1; /* Allows the <ul> to take up remaining space */
+  width: 100%; /* Ensure ul takes full width */
+  text-align: left; /* Ensure list items are left-aligned */
 }
 
 nav.vertical-nav ul li {
@@ -108,114 +78,74 @@ nav.vertical-nav ul li {
 
 nav.vertical-nav ul li a {
   display: flex;
-  align-items: center;
-  /* Centers items vertically */
-  justify-content: flex-start;
-  /* Aligns items to the left horizontally */
+  align-items: center; /* Centers items vertically */
+  justify-content: flex-start; /* Aligns items to the left horizontally */
   padding: 0.5rem 0;
-  font-size: 0.70rem;
-  /* Increased for better visibility */
+  font-size: 0.70rem; /* Increased for better visibility */
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: var(--color);
   text-decoration: none;
   transition: color 0.3s ease, padding 0.3s ease;
-  text-align: left;
-  /* Ensure text is left-aligned */
-  width: 100%;
-  /* Make links take full width */
+  text-align: left; /* Ensure text is left-aligned */
+  width: 100%; /* Make links take full width */
 }
 
-nav.vertical-nav ul li a:hover {
-  color: var(--primary);
-}
-
-nav.vertical-nav ul li a i {
-  margin-right: 0.5rem;
-  /* Space between icon and text */
-  font-size: 1rem;
-  /* Adjust icon size as needed */
-  color: var(--color);
-  flex-shrink: 0;
-  /* Prevent icon from shrinking */
-}
-
+nav.vertical-nav ul li a:hover,
 nav.vertical-nav ul li a:hover i {
   color: var(--primary);
 }
 
-/* Ensure the entry-name spans are left-aligned */
-nav.vertical-nav ul li a .entry-name {
+nav.vertical-nav ul li a i {
+  margin-right: 0.5rem; /* Space between icon and text */
+  font-size: 1rem; /* Adjust icon size as needed */
+  color: var(--color);
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* Ensure the entry-name spans are left-aligned and handle clipping */
+nav.vertical-nav ul li a .entry-name,
+.vertical-nav .entry-name {
   text-align: left;
   width: 100%;
-  /* Ensure it takes full available width */
-  display: inline-block;
+  display: inline-block; /* Changed from inline */
+  white-space: nowrap; /* Prevent text from wrapping */
+  /*overflow: hidden; /* Hide overflow */
+  /*text-overflow: ellipsis; /* Add ellipsis (...) when text is too long */
+  max-width: 0; /* Set for collapsed state */
+  transition: max-width 0.3s ease; /* Smooth transition */
+}
+
+.vertical-nav.expanded .entry-name {
+  max-width: 400px; /* Adjust based on expanded sidebar width */
 }
 
 /* Expand Button */
 .expand-button {
-  align-self: flex-start;
-  /* Aligns the button to the left */
-  margin: 2px 0;
-  /* Top and bottom margins */
-  margin-left: -09px;
-  margin-bottom: 17.5px;
-  width: 12px;
-  /* Diameter of the circle */
+  align-self: flex-start; /* Aligns the button to the left */
+  margin: 2px 0 17.5px -9px; /* Corrected margin-left from -09px to -9px */
+  width: 12px; /* Diameter of the circle */
   height: 12px;
-  background-color: black;
-  /* Black circle background */
-  border: none;
-  /* Remove border */
-  border-radius: 50%;
-  /* Makes it a circle */
+  background-color: black; /* Black circle background */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Makes it a circle */
   cursor: pointer;
   display: flex;
-  align-items: center;
-  /* Centers the icon vertically */
-  justify-content: center;
-  /* Centers the icon horizontally */
-  padding: 0;
-  /* Remove padding */
+  align-items: center; /* Centers the icon vertically */
+  justify-content: center; /* Centers the icon horizontally */
+  padding: 0; /* Remove padding */
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .expand-button::before {
-  /* Use content to add the hamburger icon */
-  /* content: "≡";  */
-  color: white;
-  /* Icon color */
-  font-size: 14px;
-  /* Adjust icon size */
+  /*content: "≡"; /* Ensure the hamburger icon is displayed */
+  color: white; /* Icon color */
+  font-size: 14px; /* Adjust icon size */
 }
 
 .expand-button:hover {
-  background-color: #555;
-  /* Darker shade on hover */
-  transform: rotate(90deg);
-  /* Example rotation on hover */
-}
-
-/* Always display entry-name with clipping */
-.vertical-nav .entry-name {
-  display: inline;
-  /* Always visible */
-  white-space: nowrap;
-  /* Prevent text from wrapping */
-  /* hide overflow as part of the clipping strategy if desired */
-  /* overflow: hidden; */
-  /* Add ellipsis (...) when text is too long */
-  /* text-overflow: ellipsis;  */
-  /* create a max-width of 0 to clip text */
-  /* max-width: 0px;  */
-  transition: max-width 0.3s ease;
-  /* Smooth transition */
-}
-
-/* When expanded, allow the text to be fully visible */
-.vertical-nav.expanded .entry-name {
-  max-width: 400px;
-  /* Adjust based on expanded sidebar width */
+  background-color: #555; /* Darker shade on hover */
+  transform: rotate(90deg); /* Example rotation on hover */
 }
 
 /* Main Content */
@@ -233,80 +163,24 @@ nav.vertical-nav ul li a .entry-name {
   }
 
   .vertical-nav {
-    width: 60px;
-    /* Collapsed width for mobile */
+    width: 60px; /* Collapsed width for mobile */
   }
 
   .vertical-nav.expanded {
-    width: 100%;
-    /* Expanded width: full width on mobile */
+    width: 100%; /* Expanded width: full width on mobile */
   }
 
   /* Adjust .entry-name max-width for mobile */
   .vertical-nav .entry-name {
-    max-width: 0;
-    /* Collapsed */
+    max-width: 0; /* Collapsed */
   }
 
   .vertical-nav.expanded .entry-name {
-    max-width: 100%;
-    /* Expanded: full width */
+    max-width: 100%; /* Expanded: full width */
   }
 }
 
-/* Common styles for Sketch Containers */
-.sketch-container,
-.d3-container {
-  flex: 1;
-  position: relative;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  /* Prevent overflow */
-}
-
-.three-container {
-  flex: 1;
-  position: relative;
-  width: 100%;
-  height: auto;
-  min-height: 50vh;
-  overflow: hidden;
-  /* Prevent overflow */
-}
-
-/* Ensure the canvas fills the container */
-.sketch-container canvas,
-.d3-container canvas,
-.three-container canvas {
-  display: block;
-  /* Removes default inline display spacing */
-  width: 100%;
-  height: 100%;
-}
-
-/* Override any text alignment from Pico.css or other libraries */
-body .layout-grid nav.vertical-nav,
-body .layout-grid nav.vertical-nav ul,
-body .layout-grid nav.vertical-nav ul li,
-body .layout-grid nav.vertical-nav ul li a,
-body .layout-grid nav.vertical-nav ul li a .entry-name {
-  text-align: left !important;
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-}
-
-body .layout-grid nav.vertical-nav ul li a {
-  flex-direction: row !important;
-}
-
-body .layout-grid nav.vertical-nav ul li a .entry-name {
-  text-align: left !important;
-  width: auto !important;
-  max-width: none !important;
-}
-
-/* prismjs formatting */
+/* PrismJS Formatting */
 code[class*="language-"],
 pre[class*="language-"] {
   max-width: 80ch; /* Optional: Remove or adjust as needed */
@@ -330,4 +204,25 @@ pre[class*="language-"] {
 pre[class*="language-"] code {
   white-space: pre;
   overflow: visible;
+}
+
+/* Override styles from other libraries */
+body .layout-grid nav.vertical-nav,
+body .layout-grid nav.vertical-nav ul,
+body .layout-grid nav.vertical-nav ul li,
+body .layout-grid nav.vertical-nav ul li a,
+body .layout-grid nav.vertical-nav ul li a .entry-name {
+  text-align: left !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}
+
+body .layout-grid nav.vertical-nav ul li a {
+  flex-direction: row !important;
+}
+
+body .layout-grid nav.vertical-nav ul li a .entry-name {
+  text-align: left !important;
+  width: auto !important;
+  max-width: none !important;
 }
