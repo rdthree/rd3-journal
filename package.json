@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:ts": "tsc --watch",
     "start": "npm-run-all --parallel watch:ts eleventy:serve",
-    "build": "tsc && eleventy",
+    "build": "tsc && eleventy --pathprefix=11ty-digital-journal",
     "eleventy": "eleventy",
     "eleventy:serve": "eleventy --serve --watch"
   },

@@ -141,6 +141,7 @@ module.exports = function (eleventyConfig) {
 
   // Configure input and output directories
   return {
+    pathPrefix: "/rd3-journal/",
     dir: {
       input: "src",
       output: "_site",
