@@ -56,7 +56,7 @@ nav.vertical-nav {
 }
 
 nav.vertical-nav.expanded {
-  width: 300px; /* Expanded width: enough for icons and text */
+  width: 450px; /* Expanded width: enough for icons and text */
 }
 
 nav.vertical-nav ul {
@@ -159,7 +159,7 @@ nav.vertical-nav ul li a .entry-name,
 
 /* Apply max-width: 80ch to all direct children except sketch containers */
 .main-content > :not(.p5js-container):not(.d3-container):not(.three-container) {
-  max-width: 80ch;
+  max-width: 90ch;
   margin-left: 0;
   margin-right: 0;
 }
@@ -221,7 +221,7 @@ nav.vertical-nav ul li a .entry-name,
 /* PrismJS Formatting */
 code[class*="language-"],
 pre[class*="language-"] {
-  max-width: 80ch; /* Optional: Remove or adjust as needed */
+  max-width: 90ch; /* Optional: Remove or adjust as needed */
   max-height: 35em; /* Equivalent to 15 lines of code */
   margin: 1em 0; /* Top and bottom margins only */
   overflow-x: auto;
