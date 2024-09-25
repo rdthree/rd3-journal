@@ -16,9 +16,6 @@
             "./node_modules/@types",
             "src/types"
         ],
-        "paths": {
-            "threejs-shared-module": ["src/types/threejs-shared-module.d.ts"]
-        },
         "types": ["p5", "d3", "three"]
     },
     "include": ["src/**/*", "/src/types/*.d.ts"],

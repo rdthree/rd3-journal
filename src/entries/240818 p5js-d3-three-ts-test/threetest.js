@@ -1,9 +1,8 @@
 // src/main.ts
-// Import Three.js from the shared module
-/// <reference path="../../types/threejs-shared-module.d.ts" />
+// ignore the following script reference, it causeses a type error, but is
+// necessary for the compiled javascript file to work
 // @ts-ignore
 import { THREE } from '../../scripts/threejs-shared-module.js'; // Adjust the path as needed
-//import { THREE } from 'threejs-shared-module.js'; // Adjust the path as needed
 const threeId = 'threetest';
 /**
  * Creates a rotating cube inside the specified container.
