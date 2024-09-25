@@ -3,7 +3,7 @@
 function p5jtest(p) {
     // The setup function to initialize the sketch
     p.setup = () => {
-        p.createCanvas(400, 400);
+        p.createCanvas(1000, 400);
         p.background(200);
     };
     // The draw function to continuously run the sketch

@@ -2,7 +2,7 @@
 function p5jtest(p: typeof p5) {
     // The setup function to initialize the sketch
     p.setup = () => {
-        p.createCanvas(400, 400);
+        p.createCanvas(1000, 400);
         p.background(200);
     };
 

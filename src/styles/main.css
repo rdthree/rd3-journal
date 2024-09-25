@@ -148,41 +148,53 @@ nav.vertical-nav ul li a .entry-name,
   transform: rotate(90deg); /* Example rotation on hover */
 }
 
-/* Main Content */
+/* Regular Text Container */
 .main-content {
   flex: 1;
   padding: 1rem;
-  overflow-y: auto;
+  overflow-x: hidden; /* Keeps regular text constrained */
+  margin: 0; /* Remove auto margins to prevent centering */
+  /* Removed max-width: 80ch; */
+}
+
+/* Apply max-width: 80ch to all direct children except sketch containers */
+.main-content > :not(.p5js-container):not(.d3-container):not(.three-container) {
   max-width: 80ch;
+  margin: 0; /* Remove auto margins to left-align */
 }
 
 /* Common styles for all Sketch Containers */
-.sketch-container,
+.p5js-container,
 .d3-container,
 .three-container {
-  flex: 1;
-  position: relative;
   width: 100%;
-  height: auto;
-  overflow: hidden;
+  max-width: none !important; /* Remove any max-width constraints */
+  margin: 2rem 0; /* Add spacing around sketches */
 }
 
-/* Specific height for three-container */
-.three-container {
-  min-height: 50vh;
-}
-
-/* Ensure the canvas fills the container */
-.sketch-container canvas,
+/* Ensure canvases within sketches fill their containers */
+.p5js-container canvas,
 .d3-container canvas,
 .three-container canvas {
-  display: block;
   width: 100%;
-  height: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}
+
+/* Specific styles for Three.js sketches */
+.three-container {
+  min-height: 50vh; /* Ensure adequate height */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+  .p5js-container,
+  .d3-container,
+  .three-container {
+    width: 100%;
+    padding: 0 1rem; /* Add horizontal padding on smaller screens */
+  }
+
   .layout-grid {
     flex-direction: column;
   }

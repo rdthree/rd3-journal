@@ -1,3 +1,4 @@
+{# layout.njk #}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <!-- Explicit Favicon Link -->
+    <link rel="icon" href="{{'/favicon.ico' | url}}" type="image/x-icon"/> 
+    <!-- Icon Library (Optional) -->
     <link
-    rel="icon" href="{{'/favicon.ico' | url}}" type="image/x-icon"/> <!-- Icon Library (Optional) -->
-    <link
-    rel="stylesheet"
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"/> <!-- Pico CSS Core -->
+      referrerpolicy="no-referrer"/>
+    <!-- Pico CSS Core -->
     <link
-    rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> <!-- PrismJS Core -->
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> 
+    <!-- PrismJS Core -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css"
@@ -33,22 +37,28 @@
         <ul>
           <li>
             <a href="{{ '/' | url }}" title="Home">
-              {# <i class="fas fa-home"></i> #}
-              <!-- Replace with appropriate icon --><span class="entry-name">Home</span>
+              <!-- Replace with appropriate icon -->
+              <span class="entry-name">Home</span>
             </a>
           </li>
           {% for entry in collections.entries | reverse %}
             <li>
               <a href="{{ entry.url | url }}" title="{{ entry.data.date }}">
-                {# <i class="fas fa-link"></i> #}
-                <!-- Replace with appropriate icon --><span class="entry-name">{{ entry.data.title }}</span>
+                <!-- Replace with appropriate icon -->
+                <span class="entry-name">{{ entry.data.title }}</span>
               </a>
             </li>
           {% endfor %}
         </ul>
       </nav>
       <main class="main-content">
+        <!-- Regular Text Content -->
         {{ content | safe }}
+        
+        <!-- Sketch Containers (Inserted via Shortcodes) -->
+        {% sketchContainer 'entries/sketch1.js', 'sketch1' %}
+        {% d3Container 'entries/d3sketch1.js', 'd3sketch1' %}
+        {% threeContainer 'entries/threesketch1.js', 'threesketch1' %}
       </main>
     </div>
     <script src="{{ '/scripts/navigation.js' | url }}"></script>
