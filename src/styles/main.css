@@ -160,7 +160,8 @@ nav.vertical-nav ul li a .entry-name,
 /* Apply max-width: 80ch to all direct children except sketch containers */
 .main-content > :not(.p5js-container):not(.d3-container):not(.three-container) {
   max-width: 80ch;
-  margin: 0; /* Remove auto margins to left-align */
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* Common styles for all Sketch Containers */
