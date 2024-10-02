@@ -16,6 +16,8 @@
   "description": "",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0-beta.1",
+    "@babylonjs/core": "^7.27.3",
+    "@babylonjs/inspector": "^7.27.3",
     "@types/d3": "^7.4.3",
     "@types/markdown-it": "^14.1.2",
     "@types/p5": "^1.7.6",
