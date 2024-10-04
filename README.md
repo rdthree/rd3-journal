@@ -195,7 +195,7 @@ This ensures that your new Eleventy configuration is properly applied to the pro
 - **Custom Shortcodes**: Simplify embedding of sketches in Markdown files.
 
   ```javascript
-  eleventyConfig.addShortcode("sketchContainer", function (src, id) {
+  eleventyConfig.addShortcode("p5Container", function (src, id) {
     return `
       <div id="${id}" class="p5js-container"></div>
       ${loadLibrary('p5')}
@@ -518,7 +518,7 @@ Use the custom shortcodes to embed sketches within your Markdown files.
 - **p5.js Sketch**:
 
   ```markdown
-  {% sketchContainer "sketch_p5.js", "sketchId" %}
+  {% p5Container "sketch_p5.js", "sketchId" %}
   ```
 
 - **D3.js Sketch**:

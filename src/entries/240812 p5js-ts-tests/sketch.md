@@ -36,10 +36,10 @@ const mySketchInstance = new p5(mySketch, 'mySketch');
 
 Our .eleventy.js file contains crucial configurations that make embedding sketches possible:
 
-1. **sketchContainer Shortcode**: This custom shortcode is defined as:
+1. **p5Container Shortcode**: This custom shortcode is defined as:
 
 
-eleventyConfig.addShortcode("sketchContainer", function (src, id) {
+eleventyConfig.addShortcode("p5Container", function (src, id) {
     return `
       <div id="${id}" class="p5js-container"></div>
       ${loadLibrary('p5')}
@@ -75,18 +75,18 @@ return new nunjucks.runtime.SafeString(scriptTag);
 
 From TypeScript to Embedded Sketch
 TypeScript Compilation: Our build process compiles sketch_p5.ts to sketch_p5.js.
-Markdown Integration: We use the shortcode in our Markdown: {% sketchContainer "sketch_p5.js", "mySketch" %}
+Markdown Integration: We use the shortcode in our Markdown: {% p5Container "sketch_p5.js", "mySketch" %}
 Eleventy Processing: Eleventy processes the shortcode, generating the necessary HTML and script tags.
 Runtime: When the page loads, p5 is loaded, and our sketch is initialized and bound to its container.
 Here's our first sketch in action:
 
-mySketch {% sketchContainer "sketch_p5.js", "mySketch" %}
+mySketch {% p5Container "sketch_p5.js", "mySketch" %}
 
 And here are two more examples:
 
-mySketch2 {% sketchContainer "sketch_p5_2.js", "mySketch2" %}
+mySketch2 {% p5Container "sketch_p5_2.js", "mySketch2" %}
 
-mySketch3 {% sketchContainer "sketch_p5_3.js", "mySketch3" %}
+mySketch3 {% p5Container "sketch_p5_3.js", "mySketch3" %}
 
 Each sketch is defined in its own TypeScript file, compiled to JavaScript, and seamlessly embedded in our journal entry using this powerful shortcode system.
 

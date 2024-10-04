@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
   }
 
   // Shortcode for p5.js sketches
-  eleventyConfig.addShortcode("sketchContainer", function (src, id) {
+  eleventyConfig.addShortcode("p5Container", function (src, id) {
     return `
       <div id="${id}" class="p5js-container"></div>
       ${loadLibrary('p5')}
